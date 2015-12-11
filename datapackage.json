@@ -1,0 +1,28 @@
+{
+	"name" : "postleitzahlen-de",
+	"version": "1.0.0",
+	"title" : "Postleitzahlen Deutschland",
+	"description": "german postcode areas",
+	"license": "ODbL-1.0",
+	"sources" : [],
+	"resources": [{
+		"path": "data/postleitzahlen.geojson",
+		"name": "postleitzahlen-de",
+		"format": "geojson",
+		"mediatype": "application/json"
+	}],
+	"contributors": [{
+		"name": "yetzt",
+		"url": "https://yetzt.me"
+	},{
+		"name": "OpenStreetMap contributors",
+		"url": "http://www.openstreetmap.org/"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yetzt/postleitzahlen.git"
+	},
+	"keywords": ["germany","postcodes","shapes","geodata"],
+	"homepage": "https://github.com/yetzt/postleitzahlen",
+	"bugs": "https://github.com/yetzt/postleitzahlen/issues"
+}
