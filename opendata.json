@@ -1,10 +1,11 @@
 {
     "name": "postleitzahlen-de",
-    "version": "1.0.0",
-    "description": "german postcode areas",
+    "version": "1.0.1",
+    "description": "german postcode areas 2020",
     "license": "ODbL-1.0",
     "files": [
-        "data/postleitzahlen.geojson"
+        "data/postleitzahlen.geojson",
+        "data/postleitzahlen.topojson",
     ],
     "contributors": [{
         "name": "yetzt",
@@ -17,7 +18,7 @@
         "type": "git",
         "url": "https://github.com/yetzt/postleitzahlen.git"
     },
-    "keywords": ["germany","postcodes","shapes","geodata"],
+    "keywords": ["germany","postcodes","shapes","geodata","geojson","topojson"],
     "homepage": "https://github.com/yetzt/postleitzahlen",
     "bugs": "https://github.com/yetzt/postleitzahlen/issues",
     "engines": { "odr": "0.0.1" }
