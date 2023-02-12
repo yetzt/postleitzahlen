@@ -1,20 +1,20 @@
 {
 	"name" : "postleitzahlen-de",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"title" : "Postleitzahlen Deutschland",
-	"description": "german postcode areas 2020",
+	"description": "german postcode areas 2023",
 	"license": "ODbL-1.0",
 	"sources" : [],
 	"resources": [{
 		"path": "data/postleitzahlen.geojson",
 		"name": "postleitzahlen-de",
 		"format": "geojson",
-		"mediatype": "application/json"
+		"mediatype": "application/geo+json"
 	},{
 		"path": "data/postleitzahlen.topojson",
 		"name": "postleitzahlen-de",
 		"format": "topojson",
-		"mediatype": "application/json"
+		"mediatype": "application/topo+json"
 	}],
 	"contributors": [{
 		"name": "yetzt",

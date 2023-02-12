@@ -1,7 +1,7 @@
 {
     "name": "postleitzahlen-de",
-    "version": "1.0.1",
-    "description": "german postcode areas 2020",
+    "version": "1.0.2",
+    "description": "german postcode areas 2023",
     "license": "ODbL-1.0",
     "files": [
         "data/postleitzahlen.geojson",
