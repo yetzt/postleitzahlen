@@ -4,16 +4,29 @@
 	"title" : "Postleitzahlen Deutschland",
 	"description": "german postcode areas 2023",
 	"license": "ODbL-1.0",
-	"sources" : [],
+	"sources" : [{
+			"title": "OpenStreetMap",
+			"path": "https://www.openstreetmap.org/"
+	}],
 	"resources": [{
 		"path": "data/postleitzahlen.geojson",
 		"name": "postleitzahlen-de",
-		"format": "geojson",
+		"format": "json",
 		"mediatype": "application/geo+json"
 	},{
 		"path": "data/postleitzahlen.topojson",
 		"name": "postleitzahlen-de",
-		"format": "topojson",
+		"format": "json",
+		"mediatype": "application/topo+json"
+	},{
+		"path": "data/postleitzahlen.small.geojson",
+		"name": "postleitzahlen-de-small",
+		"format": "json",
+		"mediatype": "application/geo+json"
+	},{
+		"path": "data/postleitzahlen.small.topojson",
+		"name": "postleitzahlen-de-small",
+		"format": "json",
 		"mediatype": "application/topo+json"
 	}],
 	"contributors": [{
@@ -21,7 +34,7 @@
 		"url": "https://yetzt.me"
 	},{
 		"name": "OpenStreetMap contributors",
-		"url": "http://www.openstreetmap.org/"
+		"url": "https://www.openstreetmap.org/"
 	}],
 	"repository": {
 		"type": "git",

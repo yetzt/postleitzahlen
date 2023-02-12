@@ -1,25 +1,29 @@
 {
-    "name": "postleitzahlen-de",
-    "version": "1.0.2",
-    "description": "german postcode areas 2023",
-    "license": "ODbL-1.0",
-    "files": [
-        "data/postleitzahlen.geojson",
-        "data/postleitzahlen.topojson",
-    ],
-    "contributors": [{
-        "name": "yetzt",
-        "url": "https://yetzt.me"
-    },{
-        "name": "OpenStreetMap contributors",
-        "url": "http://www.openstreetmap.org/"
-    }],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/yetzt/postleitzahlen.git"
-    },
-    "keywords": ["germany","postcodes","shapes","geodata","geojson","topojson"],
-    "homepage": "https://github.com/yetzt/postleitzahlen",
-    "bugs": "https://github.com/yetzt/postleitzahlen/issues",
-    "engines": { "odr": "0.0.1" }
+	"name": "postleitzahlen-de",
+	"version": "1.0.2",
+	"description": "german postcode areas 2023",
+	"license": "ODbL-1.0",
+	"files": [
+		"data/postleitzahlen.geojson",
+		"data/postleitzahlen.topojson",
+		"data/postleitzahlen.small.geojson",
+		"data/postleitzahlen.small.topojson"
+	],
+	"contributors": [{
+		"name": "yetzt",
+		"url": "https://yetzt.me"
+	},{
+		"name": "OpenStreetMap contributors",
+		"url": "https://www.openstreetmap.org/"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yetzt/postleitzahlen.git"
+	},
+	"keywords": ["germany","postcodes","shapes","geodata","geojson","topojson"],
+	"homepage": "https://github.com/yetzt/postleitzahlen",
+	"bugs": "https://github.com/yetzt/postleitzahlen/issues",
+	"engines": {
+		"odr": "0.0.1"
+	}
 }
