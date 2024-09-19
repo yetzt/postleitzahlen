@@ -1,17 +1,27 @@
 # Postleitzahlen
 
-This repository contains the shapes of german postcode areas (Postleitzahlengebiete) in geojson and topojson format.
+This repository contains the shapes of german postcode areas (Postleitzahlengebiete) in compressed geojson and topojson format.
 
-# Data Format
+## Data
 
-## `data/postleitzahlen.geojson`
+* [GeoJSON, Brotli Compressed](data/postleitzahlen.geojson.br) (18MB)
+* [TopoJSON, Brotli Compressed](data/postleitzahlen.topojson.br) (11MB)
 
-GeoJSON
+## Source
 
-## `data/postleitzahlen.topojson`
+Extracted from [OpenStreetMap](http://www.openstreetmap.org/) via [Overpass](https://overpass-turbo.eu/)
 
-TopoJSON
+Overpass Query:
 
-# Source
+```
+[out:json];
+area[wikidata="Q183"]->.searchArea;
+(
+	relation["type"="boundary"]["boundary"="postal_code"](area.searchArea);
+);
+out body geom;
+```
+## Alternatives
 
-Extracted from [OpenStreetMap](http://www.openstreetmap.org/)
+* [Postleitzahlen-Scraper](https://github.com/yetzt/postleitzahlen-scraper) - A program that downloads non-free postcode geometries from the german postal service.
+
