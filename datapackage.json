@@ -2,7 +2,7 @@
 	"name" : "postleitzahlen-de",
 	"version": "1.0.2",
 	"title" : "Postleitzahlen Deutschland",
-	"description": "german postcode areas 2023",
+	"description": "german postcode areas 2024",
 	"license": "ODbL-1.0",
 	"sources" : [{
 			"title": "OpenStreetMap",
@@ -16,16 +16,6 @@
 	},{
 		"path": "data/postleitzahlen.topojson",
 		"name": "postleitzahlen-de",
-		"format": "json",
-		"mediatype": "application/topo+json"
-	},{
-		"path": "data/postleitzahlen.small.geojson",
-		"name": "postleitzahlen-de-small",
-		"format": "json",
-		"mediatype": "application/geo+json"
-	},{
-		"path": "data/postleitzahlen.small.topojson",
-		"name": "postleitzahlen-de-small",
 		"format": "json",
 		"mediatype": "application/topo+json"
 	}],

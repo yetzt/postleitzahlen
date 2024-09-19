@@ -1,13 +1,11 @@
 {
 	"name": "postleitzahlen-de",
-	"version": "1.0.2",
-	"description": "german postcode areas 2023",
+	"version": "1.0.3",
+	"description": "german postcode areas 2024",
 	"license": "ODbL-1.0",
 	"files": [
 		"data/postleitzahlen.geojson",
 		"data/postleitzahlen.topojson",
-		"data/postleitzahlen.small.geojson",
-		"data/postleitzahlen.small.topojson"
 	],
 	"contributors": [{
 		"name": "yetzt",
