@@ -4,8 +4,8 @@ This repository contains the shapes of german postcode areas (Postleitzahlengebi
 
 ## Data
 
-* [GeoJSON, Brotli Compressed](https://github.com/yetzt/postleitzahlen/releases/download/2024.09/postleitzahlen.geojson.br) (18MB)
-* [TopoJSON, Brotli Compressed](https://github.com/yetzt/postleitzahlen/releases/download/2024.09/data/postleitzahlen.topojson.br) (11MB)
+* [GeoJSON, Brotli Compressed](https://github.com/yetzt/postleitzahlen/releases/download/2024.11/postleitzahlen.geojson.br) (30.22MB)
+* [TopoJSON, Brotli Compressed](https://github.com/yetzt/postleitzahlen/releases/download/2024.11/data/postleitzahlen.topojson.br) (20.75MB)
 
 ## Source
 
@@ -21,6 +21,11 @@ area[wikidata="Q183"]->.searchArea;
 );
 out body geom;
 ```
+
+## Importer
+
+Included in this repository is the import script used to generate the data files: `sh bin/import.sh`
+
 ## Alternatives
 
 * [Postleitzahlen-Scraper](https://github.com/yetzt/postleitzahlen-scraper) - A program that downloads non-free postcode geometries from the german postal service.

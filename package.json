@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "postleitzahlen",
+  "version": "1.0.0",
+  "main": "bin/import.js",
+  "author": "yetzt <node@yetzt.me>",
+  "license": "Unlicense",
+  "description": "import german postcode areas from osm via overpass",
+  "dependencies": {}
+}
