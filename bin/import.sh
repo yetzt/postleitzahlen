@@ -78,8 +78,8 @@ jq "{\"copyright\": \"© OpenStreetMap contributors, https://openstreetmap.org/c
 # compress
 echo "Compressing";
 if [ `command -v brotli` ]; then
-	brotli -k9 "$APPDIR/data/postleitzahlen.geojson";
-	brotli -k9 "$APPDIR/data/postleitzahlen.topojson";
+	brotli -kf -q 11 "$APPDIR/data/postleitzahlen.geojson";
+	brotli -kf -q 11 "$APPDIR/data/postleitzahlen.topojson";
 fi;
 
 echo "Clean Up";
