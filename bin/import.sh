@@ -73,6 +73,7 @@ geo2topo "$APPDIR/data/postleitzahlen.geojson" > "$APPDIR/data/postleitzahlen.to
 # ensure copyright notice
 DATE=`node -e "process.stdout.write((new Date()).toISOString())"`;
 jq "{\"copyright\": \"© OpenStreetMap contributors, https://openstreetmap.org/copyright\", \"timestamp\": \"$DATE\"} + ." "$APPDIR/data/postleitzahlen.topojson" | sponge "$APPDIR/data/postleitzahlen.topojson";
+jq "{\"copyright\": \"© OpenStreetMap contributors, https://openstreetmap.org/copyright\", \"timestamp\": \"$DATE\"} + ." "$APPDIR/data/postleitzahlen.geojson" | sponge "$APPDIR/data/postleitzahlen.geojson";
 
 # compress
 echo "Compressing";
