@@ -71,7 +71,7 @@ node "$APPDIR/bin/import.js";
 geo2topo "$APPDIR/data/postleitzahlen.geojson" > "$APPDIR/data/postleitzahlen.topojson";
 
 # ensure copyright notice
-DATE=`node -e "process.stdout.write((new Date()).toISOString())`;
+DATE=`node -e "process.stdout.write((new Date()).toISOString())"`;
 jq "{\"copyright\": \"© OpenStreetMap contributors, https://openstreetmap.org/copyright\", \"timestamp\": \"$DATE\"} + ." "$APPDIR/data/postleitzahlen.topojson" | sponge "$APPDIR/data/postleitzahlen.topojson";
 
 # compress
