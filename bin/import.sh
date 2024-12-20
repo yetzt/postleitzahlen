@@ -43,6 +43,16 @@ if [ ! `command -v curl` ]; then
 	exit 1;
 fi;
 
+if [ ! `command -v jq` ]; then
+	prnt "Missing jq ( https://jqlang.github.io/jq/ )";
+	exit 1;
+fi;
+
+if [ ! `command -v sponge` ]; then
+	prnt "Missing sponge ( From moreutils )";
+	exit 1;
+fi;
+
 # get postcodes from overpass; buesingen is not included in the first query and has to be requested separately
 echo "Fetching Postcode Areas";
 curl -v -G "http://overpass-api.de/api/interpreter" --data "data=%5Bout%3Ajson%5D%3B%20area%5Bwikidata%3D%22Q183%22%5D-%3E.searchArea%3B%20(%20relation%5B%22type%22%3D%22boundary%22%5D%5B%22boundary%22%3D%22postal_code%22%5D(area.searchArea)%3B%20)%3B%20out%20body%20geom%3B" > "$APPDIR/data/postleitzahlen.osm.json";
@@ -59,6 +69,10 @@ node "$APPDIR/bin/import.js";
 
 # convert to topojson
 geo2topo "$APPDIR/data/postleitzahlen.geojson" > "$APPDIR/data/postleitzahlen.topojson";
+
+# ensure copyright notice
+DATE=`node -e "process.stdout.write((new Date()).toISOString())`;
+jq "{\"copyright\": \"© OpenStreetMap contributors, https://openstreetmap.org/copyright\", \"timestamp\": \"$DATE\"} + ." "$APPDIR/data/postleitzahlen.topojson" | sponge "$APPDIR/data/postleitzahlen.topojson";
 
 # compress
 echo "Compressing";
