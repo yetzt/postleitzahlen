@@ -4,8 +4,7 @@ This repository contains the shapes of german postcode areas (Postleitzahlengebi
 
 ## Data
 
-* [GeoJSON, Brotli Compressed](https://github.com/yetzt/postleitzahlen/releases/download/2024.11/postleitzahlen.geojson.br) (30.22MB)
-* [TopoJSON, Brotli Compressed](https://github.com/yetzt/postleitzahlen/releases/download/2024.11/data/postleitzahlen.topojson.br) (20.75MB)
+See [Releases](https://github.com/yetzt/postleitzahlen/releases)
 
 ## Source
 
