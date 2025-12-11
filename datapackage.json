@@ -1,8 +1,8 @@
 {
 	"name" : "postleitzahlen-de",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"title" : "Postleitzahlen Deutschland",
-	"description": "german postcode areas 2024",
+	"description": "german postcode areas 2025",
 	"license": "ODbL-1.0",
 	"sources" : [{
 			"title": "OpenStreetMap",
