@@ -53,6 +53,9 @@ if [ ! `command -v sponge` ]; then
 	exit 1;
 fi;
 
+# ensure data dir
+mkdir -p "$APPDIR/data";
+
 # get postcodes from overpass; buesingen is not included in the first query and has to be requested separately
 echo "Fetching Postcode Areas";
 curl -v -G "http://overpass-api.de/api/interpreter" --data "data=%5Bout%3Ajson%5D%3B%20area%5Bwikidata%3D%22Q183%22%5D-%3E.searchArea%3B%20(%20relation%5B%22type%22%3D%22boundary%22%5D%5B%22boundary%22%3D%22postal_code%22%5D(area.searchArea)%3B%20)%3B%20out%20body%20geom%3B" > "$APPDIR/data/postleitzahlen.osm.json";
