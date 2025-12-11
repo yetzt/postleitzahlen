@@ -26,7 +26,7 @@ function recursiveRound(a){
 	geojson.features.push(JSON.parse(await fs.readFile(srcBuesingen)).features.pop());
 
 	// edit features
-	geojson.features = geojson.features.map(f=>{
+	geojson.features = geojson.features.filter(f=>(f.properties.postal_code)).map(f=>{
 
 		// round geometry
 		f.geometry.coordinates = recursiveRound(f.geometry.coordinates);
