@@ -70,6 +70,11 @@ osmtogeojson -m "$APPDIR/data/buesingen.osm.json" > "$APPDIR/data/buesingen.raw.
 echo "Importing";
 node "$APPDIR/bin/import.js";
 
+if [ $? -ne 0 ]; then
+	echo "import ended with erro" >&2;
+	exit 1;
+fi;
+
 # convert to topojson
 geo2topo "$APPDIR/data/postleitzahlen.geojson" > "$APPDIR/data/postleitzahlen.topojson";
 
