@@ -12,11 +12,18 @@ Extracted from [OpenStreetMap](http://www.openstreetmap.org/) via [Overpass](htt
 
 Overpass Query:
 
-```
-[out:json];
+``` ql
 area[wikidata="Q183"]->.searchArea;
 (
+	// Postcodes within Germany
+	// captures some non-German postcodes due to incongruent boundaries in OSM
 	relation["type"="boundary"]["boundary"="postal_code"](area.searchArea);
+
+	// Explicit German postcodes (Jungholz, Kleinwalsertal)
+	relation["type"="boundary"]["boundary"="postal_code"]["postal_code:DE"];
+
+	// Special Case: Büsingen (not captured in searchArea)
+	relation["type"="boundary"]["boundary"="postal_code"]["postal_code"="78266"];
 );
 out body geom;
 ```

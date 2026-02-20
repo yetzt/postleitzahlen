@@ -6,5 +6,8 @@
   "author": "yetzt <node@yetzt.me>",
   "license": "Unlicense",
   "description": "import german postcode areas from osm via overpass",
-  "dependencies": {}
+  "dependencies": {
+    "@turf/boolean-point-in-polygon": "^7.3.4",
+    "@turf/point-on-feature": "^7.3.4"
+  }
 }

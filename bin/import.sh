@@ -56,22 +56,30 @@ fi;
 # ensure data dir
 mkdir -p "$APPDIR/data";
 
-# get postcodes from overpass; buesingen is not included in the first query and has to be requested separately
-echo "Fetching Postcode Areas";
-curl -v -G "http://overpass-api.de/api/interpreter" --data "data=%5Bout%3Ajson%5D%3B%20area%5Bwikidata%3D%22Q183%22%5D-%3E.searchArea%3B%20(%20relation%5B%22type%22%3D%22boundary%22%5D%5B%22boundary%22%3D%22postal_code%22%5D(area.searchArea)%3B%20)%3B%20out%20body%20geom%3B" > "$APPDIR/data/postleitzahlen.osm.json";
-curl -v -G "http://overpass-api.de/api/interpreter" --data "data=%5Bout%3Ajson%5D%3B%20relation%5B%22type%22%3D%22boundary%22%5D%5B%22boundary%22%3D%22postal_code%22%5D%5B%22postal_code%22%3D%2278266%22%5D%3B%20out%20body%20geom%3B" > "$APPDIR/data/buesingen.osm.json";
+echo "Fetching Germany Administrative Boundaries"; # -s
+curl --retry 5 --retry-delay 3 --fail --max-time 300 -v -G "http://overpass-api.de/api/interpreter" --data-urlencode 'data=[out:json]; relation["boundary"="administrative"]["admin_level"="2"]["ISO3166-1"="DE"]; out geom;' > "$APPDIR/data/germany.osm.json";
+if [ $? -ne 0 ]; then
+	echo "Failed" >&2;
+	exit 1;
+fi;
 
-# convert to geojson
-echo "Converting to GeoJSON";
-osmtogeojson -m "$APPDIR/data/postleitzahlen.osm.json" > "$APPDIR/data/postleitzahlen.raw.geojson";
-osmtogeojson -m "$APPDIR/data/buesingen.osm.json" > "$APPDIR/data/buesingen.raw.geojson";
+echo "Fetching Postcode Areas";
+curl --retry 5 --retry-delay 3 --fail --max-time 300 -v -G "http://overpass-api.de/api/interpreter" --data-urlencode 'data=[out:json]; area[wikidata="Q183"]->.searchArea; ( relation["type"="boundary"]["boundary"="postal_code"](area.searchArea); relation["type"="boundary"]["boundary"="postal_code"]["postal_code:DE"]; relation["type"="boundary"]["boundary"="postal_code"]["postal_code"="78266"]; ); out body geom;' > "$APPDIR/data/postleitzahlen.osm.json";
+if [ $? -ne 0 ]; then
+	echo "Failed" >&2;
+	exit 1;
+fi;
+
+echo "Converting OSM data to GeoJSON";
+osmtogeojson -m "$APPDIR/data/germany.osm.json" > "$APPDIR/data/germany.osm.geojson";
+osmtogeojson -m "$APPDIR/data/postleitzahlen.osm.json" > "$APPDIR/data/postleitzahlen.osm.geojson";
 
 # import
 echo "Importing";
 node "$APPDIR/bin/import.js";
 
 if [ $? -ne 0 ]; then
-	echo "import ended with erro" >&2;
+	echo "Import Failed" >&2;
 	exit 1;
 fi;
 
@@ -91,10 +99,10 @@ if [ `command -v brotli` ]; then
 fi;
 
 echo "Clean Up";
-rm -f "$APPDIR/data/buesingen.osm.json";
-rm -f "$APPDIR/data/buesingen.raw.geojson";
+rm -f "$APPDIR/data/germany.osm.json";
+rm -f "$APPDIR/data/germany.osm.geojson";
 rm -f "$APPDIR/data/postleitzahlen.osm.json";
-rm -f "$APPDIR/data/postleitzahlen.raw.geojson";
+rm -f "$APPDIR/data/postleitzahlen.osm.geojson";
 
 # delete uncompressed files only if compressed
 if [ -e "$APPDIR/data/postleitzahlen.geojson.br" ]; then
